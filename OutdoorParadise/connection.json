@@ -1,3 +1,3 @@
 {
-	"connectionString":"sqlserver://den1.mssql5.gear.host;DatabaseName=outdoorparadise;user=outdoorparadise;Password=outdoorparadise123!"
+	"connectionString":"sqlserver://MSI/SQLEXPRESS;DatabaseName=Database;integratedSecurity=true"
 }

@@ -25,7 +25,7 @@ public class SqlManager {
     public static final void connectToDatabase() throws SQLException, IOException {
     	SqlConnectionInfo info = SqlConnectionInfo.load();
     	String connectionString = //"jdbc:sqlserver://" + info.getDatabaseHost() + "," + info.getDatabaseUser() + "," + info.getDatabasePassword();
-    			"jdbc:" + info.getConnectionString();
+    			"jdbc:" + /*info.getConnectionString();*/ "sqlserver://MSI\\SQLEXPRESS;DatabaseName=Database;integratedSecurity=true";
     	System.out.println(connectionString);
         connection = DriverManager.getConnection(connectionString);
         
