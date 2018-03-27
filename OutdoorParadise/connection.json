@@ -1,6 +1,3 @@
 {
-	"databaseHost":"den1.mssql5.gear.host",
-	"databaseName":"outdoorparadise",
-	"databaseUser":"outdoorparadise",
-	"databasePassword":"outdoorparadise123!"
+	"connectionString":"sqlserver://den1.mssql5.gear.host;DatabaseName=outdoorparadise;user=outdoorparadise;Password=outdoorparadise123!"
 }

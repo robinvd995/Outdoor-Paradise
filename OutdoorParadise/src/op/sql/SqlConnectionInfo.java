@@ -9,27 +9,12 @@ import com.google.gson.Gson;
 
 public class SqlConnectionInfo {
 
-    private String databaseHost;
-    private String databaseName;
-    private String databaseUser;
-    private String databasePassword;
+    private String connectionString;
     
     public SqlConnectionInfo(){}
 
-	public String getDatabaseHost() {
-		return databaseHost;
-	}
-	
-	public String getDatabaseName() {
-		return databaseName;
-	}
-
-	public String getDatabaseUser() {
-		return databaseUser;
-	}
-
-	public String getDatabasePassword() {
-		return databasePassword;
+	public String getConnectionString() {
+		return connectionString;
 	}
 	
 	public static SqlConnectionInfo load() throws IOException{
