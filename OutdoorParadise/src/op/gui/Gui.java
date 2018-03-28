@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
 
@@ -28,6 +30,19 @@ public class Gui {
 	public Gui(){}
 	
 	public void init(){
+		
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (UnsupportedLookAndFeelException e) {
+			e.printStackTrace();
+		}
+		
 		frame = new JFrame("OP Database Manager");
 		frame.setSize(1024, 800);
 		frame.setLocationRelativeTo(null);
@@ -121,8 +136,6 @@ public class Gui {
 	private static class ScrollTable extends JTable {
 		
 		public boolean getScrollableTracksViewportWidth() {
-		    // This method overrides the JTable method 
-		    // and will allow the horizontal scroll bar to show.
 		    return false;
 		  }
 	}
