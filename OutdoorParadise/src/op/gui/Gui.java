@@ -10,6 +10,9 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -27,10 +30,11 @@ public class Gui {
 	private JTable table;
 	private JScrollPane tablePanel;
 	
+	private JMenuBar menuBar;
+	
 	public Gui(){}
 	
 	public void init(){
-		
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException e) {
@@ -48,6 +52,8 @@ public class Gui {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		JPanel mainPanel = new JPanel();
+		
 		BorderLayout layout = new BorderLayout();
 		
 		JPanel inputPanel = new JPanel();
@@ -56,11 +62,29 @@ public class Gui {
 		table = new ScrollTable();
 		tablePanel = new JScrollPane(table);
 		
-		frame.setLayout(layout);
+		mainPanel.setLayout(layout);
 		
-		frame.add(inputPanel, BorderLayout.NORTH);
-		frame.add(tablePanel, BorderLayout.CENTER);
+		mainPanel.add(inputPanel, BorderLayout.NORTH);
+		mainPanel.add(tablePanel, BorderLayout.CENTER);
 		
+		menuBar = new JMenuBar();
+		JMenu bookingMenu = new JMenu("Booking");
+		JMenuItem bookingTripItem = new JMenuItem("Book Trip");
+		bookingTripItem.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				GuiTripBooking gui = new GuiTripBooking();
+				gui.openWindow(frame);
+			}
+			
+		});
+		
+		bookingMenu.add(bookingTripItem);
+		menuBar.add(bookingMenu);
+		frame.add(menuBar, BorderLayout.NORTH);
+		
+		frame.add(mainPanel);
 		frame.setVisible(true);
 	}
 	
