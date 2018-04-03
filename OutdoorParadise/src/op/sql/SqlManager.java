@@ -234,7 +234,7 @@ public class SqlManager {
 		String name = entry.getName();
 		String birthDate = entry.getBirthDate();
 		
-		String query = "INSERT INTO Traveler (name, birth_date, booking) VALUES (" + name + "," + birthDate + "," + bookingId + ")";
+		String query = "INSERT INTO Traveler (name, birth_date, booking) VALUES (" + wrap(name) + "," + wrap(birthDate) + "," + bookingId + ")";
 		System.out.println(query);
 		
 		PreparedStatement stmt = connection.prepareStatement(query);
@@ -265,13 +265,13 @@ public class SqlManager {
 		stmt.executeUpdate();
 	}
 	
-	public static float getPriceOfProduct(int productNumber) throws SQLException{
+	/*public static float getPriceOfProduct(int productNumber) throws SQLException{
 		String query = "SELECT price FROM product WHERE id = " + productNumber;
 		System.out.println(query);
 		ResultSet result = executeQuery(query);
 		result.next();
 		return Float.parseFloat(String.valueOf(result.getObject("price")));
-	}
+	}*/
 
 	public static Set<String> getTables(){
 		return tables;

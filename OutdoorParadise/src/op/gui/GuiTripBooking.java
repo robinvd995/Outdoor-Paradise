@@ -17,6 +17,7 @@ import javax.swing.JScrollPane;
 
 import op.sql.SqlManager;
 import op.sql.entries.ExcursionEntry;
+import op.sql.entries.TravelerEntry;
 import op.sql.entries.TripBookingEntry;
 import op.sql.entries.TripExcursionBookingEntry;
 import op.sql.entries.TripProductBookingEntry;
@@ -137,6 +138,10 @@ public class GuiTripBooking {
 				SqlManager.insertBookingProduct(productEntry);
 			}
 			
+			for(TravelerEntry entry : gt.getAllTravelers()){
+				SqlManager.insertTraveler(entry, id);
+			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -150,9 +155,7 @@ public class GuiTripBooking {
 		}
 		
 		for(TripProductEntry entry : productSelection.getSelectedItems()){
-			int productID = entry.getProduct();
-			float productPrice = SqlManager.getPriceOfProduct(productID);
-			price += productPrice;
+			price += entry.getDiscount();
 		}
 		
 		return price;

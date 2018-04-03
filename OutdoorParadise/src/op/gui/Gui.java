@@ -108,7 +108,6 @@ public class Gui {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String s = tableBox.getItemAt(tableBox.getSelectedIndex());
-				System.out.println(s);
 				initTableData(s);
 			}
 			
@@ -146,7 +145,6 @@ public class Gui {
 
 			@Override
 			public Object getValueAt(int rowIndex, int columnIndex) {
-				System.out.println(rowIndex + "," + columnIndex);
 				return data[rowIndex][columnIndex];
 			}
 			
